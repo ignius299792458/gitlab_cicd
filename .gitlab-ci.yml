@@ -28,6 +28,8 @@ quality_test_job:
   stage: test
   script:
     - echo "Quality Assurance Testing...."
+  tags:
+    - iginus_dev_agent
 
 prod_test_job:
   stage: test
@@ -64,3 +66,5 @@ production_deploy_job:
     paths:
       - artifacts/
     expire_in: 3 week
+  tags:
+    - iginus_dev_agent
