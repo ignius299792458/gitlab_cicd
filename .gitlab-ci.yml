@@ -4,6 +4,10 @@ stages:
   - push
   - deploy
 
+variables:
+  DEPLOY_ENV: "production"
+  MY_VAR: "just keep leanring."
+
 build_job:
   stage: build
   script:
@@ -27,6 +31,7 @@ prod_test_job:
 docker_push_job:
   stage: push
   script:
+    - echo "Log in to docker hub with username $DOCKER_HUB_USERNAME password $DOCKER_HUB_PASSWORD"
     - echo "Pushing to Docker hub....."
 
 ec2_push_job:
