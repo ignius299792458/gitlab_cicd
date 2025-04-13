@@ -1,6 +1,4 @@
-
-
-stages:          # List of stages for jobs, and their order of execution
+stages:    
   - build
   - test
   - push
@@ -11,18 +9,32 @@ build_job:
   script:
     - echo "Building project...."
 
-test_job:
+build_test_job:
   stage: test
   script:
     - echo "Testing build...."
 
-push_job:
+quality_test_job:
+  stage: test
+  script:
+    - echo "Quality Assurance Testing...."
+
+prod_test_job:
+  stage: test
+  script:
+    - echo "Production Grade Testing...."
+
+docker_push_job:
   stage: push
   script:
-    - echo "Pushing build....."
+    - echo "Pushing to Docker hub....."
+
+ec2_push_job:
+  stage: push
+  script:
+    - echo "Pushing to EC2...."
 
 deploy_job:
   stage: deploy
   script:
     - echo "Deploying build....."
-    
