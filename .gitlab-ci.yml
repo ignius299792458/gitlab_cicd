@@ -7,12 +7,12 @@ stages:
 build_job:
   stage: build
   script:
-    - echo "Building project...."
+    - echo "Building $CI_PROJECT_NAME project...."
 
 build_test_job:
   stage: test
   script:
-    - echo "Testing build...."
+    - echo "Testing $CI_COMMIT_AUTHOR build...."
 
 quality_test_job:
   stage: test
@@ -42,4 +42,4 @@ stagging_deploy_job:
 production_deploy_job:
   stage: deploy
   script:
-    - echo "Production Deploy...."
+    - echo "Production $CI_RUNNER_ID Deploy...."
