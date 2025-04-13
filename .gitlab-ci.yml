@@ -34,7 +34,12 @@ ec2_push_job:
   script:
     - echo "Pushing to EC2...."
 
-deploy_job:
+stagging_deploy_job:
   stage: deploy
   script:
-    - echo "Deploying build....."
+    - echo "Stagging Deploy...."
+
+production_deploy_job:
+  stage: deploy
+  script:
+    - echo "Production Deploy...."
