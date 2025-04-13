@@ -17,6 +17,10 @@ build_test_job:
   stage: test
   script:
     - echo "Testing $CI_COMMIT_AUTHOR build...."
+    - echo "Testing $CI_COMMIT_AUTHOR build reports logs" > artifacts/test_job/build_test_job.log
+  artifacts:
+    paths:
+      - artifacts/test_job/
 
 quality_test_job:
   stage: test
@@ -38,6 +42,10 @@ ec2_push_job:
   stage: push
   script:
     - echo "Pushing to EC2...."
+    - echo "Pushing EC2 report for team members" > artifacts/push_job/ec2_push_job.log
+  artifacts:
+    paths:
+      - artifacts/push_job/
 
 stagging_deploy_job:
   stage: deploy
@@ -48,3 +56,7 @@ production_deploy_job:
   stage: deploy
   script:
     - echo "Production $CI_RUNNER_ID Deploy...."
+    - echo "Artifacts production deployment report logs $CI_JOB_STAGE" > artifacts/deploy_job/production_deploy_job.log
+  artifacts:
+    paths:
+      - artifacts/deploy_job/
