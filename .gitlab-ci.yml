@@ -21,6 +21,7 @@ build_test_job:
   artifacts:
     paths:
       - artifacts/test_job/
+    expire_in: 1 week
 
 quality_test_job:
   stage: test
@@ -46,6 +47,7 @@ ec2_push_job:
   artifacts:
     paths:
       - artifacts/push_job/
+    expire_in: 2 week
 
 stagging_deploy_job:
   stage: deploy
@@ -60,3 +62,4 @@ production_deploy_job:
   artifacts:
     paths:
       - artifacts/deploy_job/
+    expire_in: 3 week
